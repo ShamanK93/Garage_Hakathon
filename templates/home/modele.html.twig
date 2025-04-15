@@ -1,0 +1,137 @@
+<!-- filepath: c:\Users\shama\OneDrive\Documents\garage test\garage_hackathon\templates\home\modele.html.twig -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Modèles</title>
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .car-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .car-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .car-item:hover {
+            transform: scale(1.05);
+        }
+
+        .car-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-item .car-info {
+            padding: 1rem;
+        }
+
+        .car-item .car-info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .car-item .car-info p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+
+        .car-item .car-info .price {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .back-home {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .back-home a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #007BFF;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .back-home a:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .back-home a:active {
+        background-color: #003f7f;
+        transform: scale(0.95);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nos Modèles</h1>
+    </header>
+    <main>
+        <div class="car-list">
+            {% for car in cars %}
+                <div class="car-item">
+                    {% if car.image %}
+                        <img src="{{ asset(car.image) }}" alt="{{ car.name }}">
+                    {% endif %}
+                    <div class="car-info">
+                        <h2>{{ car.name }}</h2>
+                        <p>Marque : {{ car.brand }}</p>
+                        <p>Année : {{ car.year }}</p>
+                        <p class="price">Prix : {{ car.price }} €</p>
+                        {% if car.description %}
+                            <p>Description : {{ car.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% else %}
+                <p>Aucun modèle disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+        <div class="back-home">
+            <a href="{{ path('home') }}">Retour à l'accueil</a>
+        </div>
+    </main>
+</body>
+</html>
