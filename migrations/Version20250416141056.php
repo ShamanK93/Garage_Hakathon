@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250415221417 extends AbstractMigration
+final class Version20250416141056 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,6 +20,9 @@ final class Version20250415221417 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql(<<<'SQL'
+            DROP INDEX uniq_identifier_email
+        SQL);
         $this->addSql(<<<'SQL'
             ALTER TABLE "user" ADD is_verified BOOLEAN NOT NULL
         SQL);
@@ -33,6 +36,9 @@ final class Version20250415221417 extends AbstractMigration
         SQL);
         $this->addSql(<<<'SQL'
             ALTER TABLE "user" DROP is_verified
+        SQL);
+        $this->addSql(<<<'SQL'
+            CREATE UNIQUE INDEX uniq_identifier_email ON "user" (email)
         SQL);
     }
 }
