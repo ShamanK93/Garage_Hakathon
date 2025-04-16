@@ -1,3 +1,139 @@
+/* Style global pour le formulaire */
 body {
-    background-color: skyblue;
+    font-family: 'Inter Regular', sans-serif;
+    color: #161616;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+form .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #405cf5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form .btn:hover {
+    background-color: #4e6fe1; /* Darker shade on hover */
+}
+
+.alert {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+}
+
+/* Centrage du formulaire */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container form {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Style spécifique à la page de registration */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+header h1 {
+    font-family: 'Tisa Regular';
+    font-size: 2rem;
+    color: #333;
+}
+
+header .hero-text {
+    font-family: 'Tisa Regular';
+    text-align: center;
+    margin-top: 2em;
+}
+
+header .hero-text h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+header .hero-text h3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding-bottom: 2em;
+}
+
+/* Button focus state */
+form .btn:focus {
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0;
+    outline: none;
 }

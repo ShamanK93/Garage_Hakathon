@@ -1,17 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Garage</title>
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        <script src="https://unpkg.com/alpinejs" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+        <nav>
+            <article class="nav-text">
+                <a href="{{ path('modeles') }}"><h3>Modèles</h3></a>
+                <a href="{{ path('avis') }}"><h3>Avis</h3></a>
+                <a href=""><h3>Nous contacter</h3></a>
+            </article>
+            <article class="logo">
+                <a href="">
+                    <img id="logo" src="images/vparrot.png" alt="logo">
+                </a>
+            </article>
+            <article class="nav-icons">
+                <a href="">
+                    <img src="images/localisation.svg" alt="localisation">
+                </a>
+                <!-- Bouton Favoris -->
+                <a href="{{ path('favoris_list') }}" class="favorite-link">
+                    <img src="{{ asset('assets/images/star-icon.png') }}" alt="Favoris" class="favorite-icon">
+                </a>
+                <!-- Bouton Register -->
+                <a href="{{ path('app_register') }}">
+                    <img src="{{ asset('assets/images/bmw-serie3.jpg') }}" alt="connexion">
+                </a>
+            </article>
+        </nav>
     </body>
 </html>

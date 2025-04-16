@@ -1,0 +1,22 @@
+<!-- filepath: c:\Users\shama\OneDrive\Documents\garage test\garage_hackathon\templates\home\favoris.html.twig -->
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Favoris{% endblock %}
+
+{% block body %}
+    <h1>Mes Favoris</h1>
+    {% if favoris|length > 0 %}
+        <ul>
+            {% for car in favoris %}
+                <li>
+                    <h2>{{ car.name }}</h2>
+                    <p>Marque : {{ car.brand }}</p>
+                    <p>Année : {{ car.year }}</p>
+                    <p>Prix : {{ car.price }} €</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Vous n'avez aucun favori pour le moment.</p>
+    {% endif %}
+{% endblock %}

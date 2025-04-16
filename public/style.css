@@ -189,3 +189,120 @@ header .hero-text h3{
 .header-button:focus {
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
+
+.favorite-link {
+    margin-right: 15px;
+}
+
+.favorite-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+    transform: scale(1.2);
+}
+/*---------------------------------->
+/* Style pour la barre de navigation */
+nav {
+    background-color: white;
+    z-index: 100;
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0; /* Assure que la navbar reste en haut */
+    width: 100%;
+    box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+    /* margin-top: 0; Suppression de la marge pour le coller au haut */
+    transition: all 0.3s ease;
+}
+
+/* Contenu de la navbar */
+nav article {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Position du logo */
+nav article.logo {
+    width: 23%;
+}
+
+/* Texte de la navbar */
+nav article.nav-text {
+    width: 25%;
+}
+
+/* Liens de la navbar */
+nav article.nav-text a {
+    text-decoration: none;
+}
+
+/* Style des titres dans la navbar */
+nav article h3 {
+    color: #161616;
+}
+
+/* Logo de la navbar */
+nav img#logo {
+    margin-right: 5em;
+    margin-top: 0;
+    height: 60px;
+    width: 80px;
+}
+
+/* Position des icônes et des liens de la navbar */
+nav article.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+/* Icônes dans la navbar */
+nav article.nav-icons a {
+    margin-right: 15px;
+}
+
+/* Icône des favoris */
+.favorite-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+    transform: scale(1.2);
+}
+
+nav article.nav-icons img {
+    height: 24px;
+    width: 24px;
+}
+/* Barre de navigation */
+nav {
+    background-color: white;
+    z-index: 1000; /* Assure que la navbar reste au-dessus des autres éléments */
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-around;
+    position: sticky; /* Rend la navbar collante */
+    top: 0; /* Fixe la navbar en haut de la page */
+    width: 100%;
+    box-shadow: 0px 10px 10px -6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Contenu de la navbar */
+nav article {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Icônes dans la navbar */
+nav article.nav-icons img {
+    height: 24px;
+    width: 24px;
+}
