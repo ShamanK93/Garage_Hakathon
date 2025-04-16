@@ -59,4 +59,55 @@ public function addCar(Request $request, EntityManagerInterface $entityManager):
     return $this->render('admin/car_add.html.twig', [
         'carForm' => $form->createView(),
     ]);
-}}
+}   
+    #[Route('/admin/car/delete/{id}', name: 'admin_car_delete', methods: ['POST'])]
+public function deleteCar(int $id, EntityManagerInterface $entityManager): Response
+{
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+    $car = $entityManager->getRepository(Car::class)->find($id);
+
+    if (!$car) {
+        $this->addFlash('error', 'La voiture demandée n\'existe pas.');
+        return $this->redirectToRoute('admin_dashboard');
+    }
+
+    $entityManager->remove($car);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'La voiture a été supprimée avec succès.');
+
+    return $this->redirectToRoute('admin_dashboard');
+}
+
+
+#[Route('/modeles/edit/{id}', name: 'modeles_car_edit', methods: ['GET', 'POST'])]
+public function editCar(int $id, Request $request, EntityManagerInterface $entityManager): Response
+{
+    $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+    $car = $entityManager->getRepository(Car::class)->find($id);
+
+    if (!$car) {
+        $this->addFlash('error', 'La voiture demandée n\'existe pas.');
+        return $this->redirectToRoute('modeles');
+    }
+
+    $form = $this->createForm(CarType::class, $car);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->flush();
+
+        $this->addFlash('success', 'La voiture a été modifiée avec succès.');
+
+        return $this->redirectToRoute('modeles');
+    }
+
+    return $this->render('home/edit_car.html.twig', [
+        'carForm' => $form->createView(),
+        'car' => $car,
+    ]);
+}
+
+}

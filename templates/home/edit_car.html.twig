@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une voiture{% endblock %}
+
+{% block body %}
+    <h1>Modifier la voiture : {{ car.name }}</h1>
+
+    {{ form_start(carForm) }}
+        {{ form_widget(carForm) }}
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+    {{ form_end(carForm) }}
+
+    <div class="back-home">
+        <a href="{{ path('modeles') }}" class="btn btn-secondary">Annuler</a>
+    </div>
+{% endblock %}
