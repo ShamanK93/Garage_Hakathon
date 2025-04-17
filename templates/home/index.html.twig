@@ -9,17 +9,143 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     </head>
+    <style>
+    /* Styles généraux */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 1; /* Place la vidéo derrière le texte */
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2; /* Place le texte devant la vidéo */
+}
+
+.overlay-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.overlay-text-secondary {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+/* Presentation container */
+.presentation-container {
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.presentation-content h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.presentation-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.info-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer (optionnel) */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+    </style>
 
     <body>
              {{ include("navbar.html.twig") }}
              <div class="video-container">
-            <video width="100%" height="10%" autoplay loop muted>
-            <source src="/videos/cars_background.mp4" type="video/mp4">
-            Votre navigateur ne prend pas en charge la balise vidéo.
-            </video>
-            <p class="overlay-text">Découvrez nos modèles les plus rapides.</p>
-            <p class="overlay-text-secondary">Découvrez la version 100% Électrique ou la version Hybride.</p>
-            </div>
+    <video width="100%" height="10%" autoplay loop muted>
+        <source src="/videos/cars_background.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge la balise vidéo.
+    </video>
+    
+</div>
                 <div class="presentation-container">
                     <div class="presentation-content">
                         <h2>Notre Garage Auto.</h2>

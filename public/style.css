@@ -252,3 +252,42 @@ header .hero-text h3{
 .info-button:hover {
     background-color: #0056b3;
 }
+
+
+.video-container {
+    position: relative; /* Permet de positionner les éléments enfants avec position:absolute */
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajuste la vidéo pour qu'elle couvre tout le conteneur */
+}
+
+.overlay {
+    position: absolute; /* Positionne le texte par rapport au conteneur parent */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste le centrage */
+    text-align: center;
+    color: white;
+    z-index: 2; /* Place le texte devant la vidéo */
+}
+
+.overlay-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.overlay-text-secondary {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.video-container video {
+    z-index: 1; /* Place la vidéo derrière le texte */
+}
