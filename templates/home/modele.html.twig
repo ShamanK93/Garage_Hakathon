@@ -100,12 +100,21 @@
             color: #000;
         }
 
+        .car-item .car-info .actions .btn-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
         .car-item .car-info .actions .btn-danger:hover {
             background-color: #c82333;
         }
 
         .car-item .car-info .actions .btn-warning:hover {
             background-color: #e0a800;
+        }
+
+        .car-item .car-info .actions .btn-success:hover {
+            background-color: #218838;
         }
 
         .back-home {
@@ -137,8 +146,6 @@
         }
     </style>
 </head>
-{{ include("navbar.html.twig") }}
-
 <body>
     <header>
         <h1>Nos Modèles</h1>
@@ -158,15 +165,16 @@
                         {% if car.description %}
                             <p>Description : {{ car.description }}</p>
                         {% endif %}
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <div class="actions">
+                        <div class="actions">
+                            <a href="{{ path('car_buy', { id: car.id }) }}" class="btn btn-success">Reserver</a>
+                            {% if is_granted('ROLE_ADMIN') %}
                                 <form method="post" action="{{ path('admin_car_delete', { id: car.id }) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette voiture ?');">
                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ car.id) }}">
                                     <button class="btn btn-danger">Supprimer</button>
                                 </form>
                                 <a href="{{ path('modeles_car_edit', { id: car.id }) }}" class="btn btn-warning">Modifier</a>
-                            </div>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             {% else %}

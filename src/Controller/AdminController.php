@@ -108,6 +108,21 @@ public function editCar(int $id, Request $request, EntityManagerInterface $entit
         'carForm' => $form->createView(),
         'car' => $car,
     ]);
+}   
+#[Route('/car/buy/{id}', name: 'car_buy', methods: ['GET'])]
+public function buyCar(int $id, EntityManagerInterface $entityManager): Response
+{
+    $car = $entityManager->getRepository(Car::class)->find($id);
+
+    if (!$car) {
+        $this->addFlash('error', 'La voiture demandée n\'existe pas.');
+        return $this->redirectToRoute('modeles');
+    }
+
+    // Logique d'achat (par exemple, redirection vers une page de paiement)
+    $this->addFlash('success', 'Vous avez choisi d\'acheter la voiture : ' . $car->getName());
+
+    return $this->redirectToRoute('modeles');
 }
 
 }
